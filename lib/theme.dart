@@ -27,13 +27,13 @@ class AppTheme {
   // *****************
   static const TextStyle _lightHeadingText = TextStyle(
       color: _lightTextColorPrimary,
-      fontFamily: "Rubik",
+      // fontFamily: "Montserrat",
       fontSize: 20,
       fontWeight: FontWeight.bold);
 
   static const TextStyle _lightBodyText = TextStyle(
       color: _lightTextColorPrimary,
-      fontFamily: "Rubik",
+      // fontFamily: "Montserrat",
       fontStyle: FontStyle.italic,
       fontWeight: FontWeight.bold,
       fontSize: 16);
@@ -62,6 +62,7 @@ class AppTheme {
   // *****************
 
   static final ThemeData lightTheme = ThemeData(
+      fontFamily: "Montserrat",
       scaffoldBackgroundColor: _lightPrimaryColor,
       appBarTheme: const AppBarTheme(
           color: _appbarColorLight,
@@ -76,6 +77,7 @@ class AppTheme {
       textTheme: _lightTextTheme);
 
   static final ThemeData darkTheme = ThemeData(
+      fontFamily: "Montserrat",
       scaffoldBackgroundColor: _darkPrimaryColor,
       appBarTheme: AppBarTheme(
           color: _appbarColorDark,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app_clean_arch/2_application/pages/signin/signin_page.dart';
-import 'package:todo_app_clean_arch/2_application/pages/splash/splash_page.dart';
+import 'package:todo_app_clean_arch/2_application/pages/signup/signup_page.dart';
 import 'package:todo_app_clean_arch/theme.dart';
 
 import '2_application/core/services/theme_service.dart';
@@ -23,9 +22,9 @@ class MyApp extends StatelessWidget {
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
         // home: const Placeholder(),
-        home: SplashPage(),
+        home: SignupPage(),
         routes: {
-          SigninPage.routeName: (context) => const SigninPage(),
+          SignupPage.routeName: (context) => const SignupPage(),
         },
       );
     });
