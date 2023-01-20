@@ -67,9 +67,22 @@ class AppTheme {
       appBarTheme: const AppBarTheme(
           color: _appbarColorLight,
           iconTheme: IconThemeData(color: _iconColor)),
+      inputDecorationTheme: InputDecorationTheme(
+        focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(width: 1, color: Colors.red)),
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(width: 1, color: Colors.black)),
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: BorderSide(width: 1, color: Colors.black)),
+        disabledBorder: UnderlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: BorderSide(width: 1, color: Colors.grey)),
+      ),
       bottomAppBarColor: _appbarColorLight,
       colorScheme: ColorScheme.light(
-        primary: _lightPrimaryColor,
+        // primary: _lightPrimaryColor,
         onPrimary: _lightOnPrimaryColor,
         secondary: _accentColor,
         primaryContainer: _lightPrimaryVariantColor,
