@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 import 'package:todo_app_clean_arch/2_application/pages/signup/signup_page.dart';
 import 'package:todo_app_clean_arch/theme.dart';
 
@@ -17,14 +18,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeService>(builder: (context, themeService, child) {
-      return MaterialApp(
-        themeMode: themeService.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
-        theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
-        // home: const Placeholder(),
-        home: SignupPage(),
-        routes: {
-          SignupPage.routeName: (context) => const SignupPage(),
+      return Sizer(
+        builder: (context, orientation, deviceType) {
+          return MaterialApp(
+            themeMode:
+                themeService.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
+            theme: AppTheme.lightTheme,
+            darkTheme: AppTheme.darkTheme,
+            // home: const Placeholder(),
+            home: SignupPage(),
+            routes: {
+              SignupPage.routeName: (context) => const SignupPage(),
+            },
+          );
         },
       );
     });

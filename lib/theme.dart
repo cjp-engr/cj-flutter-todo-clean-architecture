@@ -5,11 +5,14 @@ class AppTheme {
 
   // *****************
   // static colors
-  // *****************
+  // *****************#6e3b3b
   static final Color _lightPrimaryColor = Colors.blueGrey.shade50;
-  static final Color _lightPrimaryVariantColor = Colors.blueGrey.shade800;
   static final Color _lightOnPrimaryColor = Colors.blueGrey.shade200;
-  static const Color _lightTextColorPrimary = Colors.black;
+  static final Color _lightPrimaryVariantColor = Colors.blueGrey.shade800;
+  static final Color _lightSecondaryColor = Color.fromRGBO(168, 0, 56, 1);
+  static final Color _lightOnSecondaryColor = Color.fromRGBO(26, 147, 111, 1);
+  static final Color _lightOnErrorColor = Color.fromRGBO(253, 0, 84, 1);
+  static const Color _lightTextColorPrimary = Color.fromRGBO(43, 32, 36, 1);
   static const Color _appbarColorLight = Colors.blue;
 
   static final Color _darkPrimaryColor = Colors.blueGrey.shade900;
@@ -38,9 +41,16 @@ class AppTheme {
       fontWeight: FontWeight.bold,
       fontSize: 16);
 
+  static const TextStyle _lightButtonText = TextStyle(
+      color: _lightTextColorPrimary,
+      // fontFamily: "Montserrat",
+      fontWeight: FontWeight.bold,
+      fontSize: 16);
+
   static const TextTheme _lightTextTheme = TextTheme(
     headline1: _lightHeadingText,
     bodyText1: _lightBodyText,
+    button: _lightButtonText,
   );
 
   // *****************
@@ -68,24 +78,28 @@ class AppTheme {
           color: _appbarColorLight,
           iconTheme: IconThemeData(color: _iconColor)),
       inputDecorationTheme: InputDecorationTheme(
+        focusColor: _lightSecondaryColor,
         focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(width: 1, color: Colors.red)),
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(width: 0.5, color: _lightOnErrorColor)),
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(width: 1, color: Colors.black)),
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(width: 0.5, color: _lightSecondaryColor)),
         enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-            borderSide: BorderSide(width: 1, color: Colors.black)),
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(width: 0.5, color: Colors.black)),
         disabledBorder: UnderlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-            borderSide: BorderSide(width: 1, color: Colors.grey)),
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(width: 0.5, color: _lightOnPrimaryColor)),
       ),
       bottomAppBarColor: _appbarColorLight,
       colorScheme: ColorScheme.light(
         // primary: _lightPrimaryColor,
         onPrimary: _lightOnPrimaryColor,
-        secondary: _accentColor,
         primaryContainer: _lightPrimaryVariantColor,
+        secondary: _lightSecondaryColor,
+        onSecondary: _lightOnSecondaryColor,
+        onError: _lightOnErrorColor,
       ),
       textTheme: _lightTextTheme);
 

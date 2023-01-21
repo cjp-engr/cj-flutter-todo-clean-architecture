@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
+import 'package:todo_app_clean_arch/2_application/pages/signup/widget/member_sign_in_button.dart';
+import 'package:todo_app_clean_arch/2_application/pages/signup/widget/signup_button.dart';
 import 'package:validators/validators.dart';
 
 class SignupPage extends StatefulWidget {
@@ -154,17 +156,9 @@ class _SignupPageState extends State<SignupPage> {
                       },
                     ),
                     const SizedBox(height: 20.0),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Test',
-                      ),
-                    ),
+                    SignupButton(),
                     const SizedBox(height: 10.0),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text('Already a member? Sign in!'),
-                    ),
+                    MemberSigninButton(),
                   ].reversed.toList(),
                 ),
               ),
