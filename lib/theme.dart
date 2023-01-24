@@ -5,9 +5,9 @@ class AppTheme {
 
   // *****************
   // static colors
-  // *****************#6e3b3b
+  // *****************
   static final Color _lightPrimaryColor = Colors.blueGrey.shade50;
-  static final Color _lightOnPrimaryColor = Colors.blueGrey.shade200;
+  static final Color _lightOnPrimaryColor = Colors.white;
   static final Color _lightPrimaryVariantColor = Colors.blueGrey.shade800;
   static final Color _lightSecondaryColor = Color.fromRGBO(168, 0, 56, 1);
   static final Color _lightOnSecondaryColor = Color.fromRGBO(26, 147, 111, 1);
@@ -81,16 +81,16 @@ class AppTheme {
         focusColor: _lightSecondaryColor,
         focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(width: 0.5, color: _lightOnErrorColor)),
+            borderSide: BorderSide(width: 1, color: _lightOnErrorColor)),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(width: 0.5, color: _lightSecondaryColor)),
+            borderSide: BorderSide(width: 1.5, color: _lightSecondaryColor)),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(width: 0.5, color: Colors.black)),
+            borderSide: BorderSide(width: 1, color: _lightTextColorPrimary)),
         disabledBorder: UnderlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(width: 0.5, color: _lightOnPrimaryColor)),
+            borderSide: BorderSide(width: 1, color: _lightOnPrimaryColor)),
       ),
       bottomAppBarColor: _appbarColorLight,
       colorScheme: ColorScheme.light(

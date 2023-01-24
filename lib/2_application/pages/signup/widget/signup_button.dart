@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class SignupButton extends StatelessWidget {
@@ -12,7 +10,8 @@ class SignupButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: ElevatedButton(
         onPressed: () {},
-        child: Text('Test', style: themeData.textTheme.button),
+        child: Text('Test',
+            style: TextStyle(color: themeData.colorScheme.onPrimary)),
         style: ButtonStyle(
           fixedSize: MaterialStateProperty.all(Size(40, 50)),
           backgroundColor:
