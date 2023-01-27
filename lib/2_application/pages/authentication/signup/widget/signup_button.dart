@@ -2,9 +2,11 @@
 import 'package:flutter/material.dart';
 
 class SignupButton extends StatelessWidget {
+  final String text;
   final Function() onTap;
   const SignupButton({
     Key? key,
+    required this.text,
     required this.onTap,
   }) : super(key: key);
 
@@ -20,7 +22,7 @@ class SignupButton extends StatelessWidget {
           backgroundColor:
               MaterialStateProperty.all(themeData.colorScheme.secondary),
         ),
-        child: Text('Sign up',
+        child: Text(text,
             style: TextStyle(color: themeData.colorScheme.onPrimary)),
       ),
     );

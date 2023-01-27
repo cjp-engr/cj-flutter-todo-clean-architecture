@@ -1,13 +1,12 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fb_auth;
-import 'package:todo_app_clean_arch/1_domain/failures/failures.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class SignupRemoteDatasource {
-  Future<Either<Failure, String>> setNewUserRemoteDatasource({
+  Future<Either<String, String>> setNewUserRemoteDatasource({
     required String name,
     required String email,
     required String password,
@@ -24,7 +23,7 @@ class SignupRemoteDatasourceImpl implements SignupRemoteDatasource {
   Stream<fb_auth.User?> get user => firebaseAuth.userChanges();
 
   @override
-  Future<Either<Failure, String>> setNewUserRemoteDatasource({
+  Future<Either<String, String>> setNewUserRemoteDatasource({
     required String name,
     required String email,
     required String password,
@@ -44,9 +43,10 @@ class SignupRemoteDatasourceImpl implements SignupRemoteDatasource {
         'rank': 'bronze',
       });
       return right('I am succesfully registered');
+    } on FirebaseAuthException catch (e) {
+      return left(e.message!);
     } catch (e) {
-      log(e.toString());
-      return left(GeneralFailure());
+      return left(e.toString());
     }
   }
 }

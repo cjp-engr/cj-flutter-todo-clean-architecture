@@ -69,7 +69,6 @@ class _SignupPageState extends State<SignupPage> {
 
   @override
   Widget build(BuildContext context) {
-    final themeData = Theme.of(context);
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -171,12 +170,12 @@ class _SignupPageState extends State<SignupPage> {
                   const SizedBox(height: 20.0),
                   BlocBuilder<SignupBloc, SignupState>(
                     builder: (context, state) {
+                      log(state.toString());
                       if (state is SignupStateAuthenticating) {
-                        return CircularProgressIndicator(
-                          color: themeData.colorScheme.secondary,
-                        );
+                        return SignupButton(
+                            text: 'Signing up...', onTap: (() => null));
                       }
-                      return SignupButton(onTap: _submit);
+                      return SignupButton(text: 'Sign up', onTap: _submit);
                     },
                   ),
                   const SizedBox(height: 10.0),
