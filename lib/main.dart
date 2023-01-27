@@ -1,15 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:todo_app_clean_arch/2_application/pages/authentication/signin/signin_page.dart';
+import 'package:todo_app_clean_arch/2_application/pages/authentication/signup/signup_page.dart';
 import 'firebase_options.dart';
+import 'injection.dart' as di;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-import 'package:todo_app_clean_arch/2_application/pages/signup/signup_page.dart';
 import 'package:todo_app_clean_arch/theme.dart';
 
 import '2_application/core/services/theme_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(ChangeNotifierProvider(
     create: (context) => ThemeService(),
@@ -25,14 +28,16 @@ class MyApp extends StatelessWidget {
       return Sizer(
         builder: (context, orientation, deviceType) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             themeMode:
                 themeService.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             // home: const Placeholder(),
-            home: SignupPage(),
+            home: const SignupPageWrapperProvider(),
             routes: {
               SignupPage.routeName: (context) => const SignupPage(),
+              SigninPage.routeName: (context) => const SigninPage(),
             },
           );
         },
