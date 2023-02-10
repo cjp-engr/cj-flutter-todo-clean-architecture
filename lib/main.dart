@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:todo_app_clean_arch/2_application/pages/authentication/signin/signin_page.dart';
-import 'package:todo_app_clean_arch/2_application/pages/authentication/signup/signup_page.dart';
+import 'package:todo_app_clean_arch/features/signup/presentation/pages/signup_page.dart';
 import 'firebase_options.dart';
 import 'injection.dart' as di;
 import 'package:flutter/material.dart';
@@ -8,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:todo_app_clean_arch/theme.dart';
 
-import '2_application/core/services/theme_service.dart';
+import 'core/services/theme_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +36,7 @@ class MyApp extends StatelessWidget {
             home: const SignupPageWrapperProvider(),
             routes: {
               SignupPage.routeName: (context) => const SignupPage(),
-              SigninPage.routeName: (context) => const SigninPage(),
+              // SigninPage.routeName: (context) => const SigninPage(),
             },
           );
         },
