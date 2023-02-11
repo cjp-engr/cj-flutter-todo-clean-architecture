@@ -16,12 +16,22 @@ class SignupModel extends SignupEntity with EquatableMixin {
           profileImage: profileImage,
         );
 
+  Map<String, dynamic> toJson() {
+    return {
+      'userId': userId,
+      'name': name,
+      'email': email,
+      'password': 'secret',
+      'profileImage': profileImage,
+    };
+  }
+
   factory SignupModel.fromJson(Map<String, dynamic> json) {
     return SignupModel(
       userId: json['userId'],
       name: json['name'],
       email: json['email'],
-      password: json['password'],
+      password: '',
       profileImage: json['profileImage'],
     );
   }

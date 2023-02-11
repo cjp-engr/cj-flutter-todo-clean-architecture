@@ -38,17 +38,16 @@ class SignupRemoteDatasourceImpl implements SignupRemoteDatasource {
           .createUserWithEmailAndPassword(email: email, password: password);
       final signedInUser = userCredential.user!;
 
-      Map<String, dynamic> details = {
-        'userId': signedInUser.uid,
-        'name': name,
-        'email': email,
-        'password': 'secret',
-        'profileImage': profileImage,
-      };
+      final userDetails = SignupModel(
+          userId: signedInUser.uid,
+          name: name,
+          email: email,
+          password: 'secret',
+          profileImage: profileImage);
 
-      await usersRef.doc(signedInUser.uid).set(details);
+      await usersRef.doc(signedInUser.uid).set(userDetails.toJson());
 
-      return SignupModel.fromJson(details);
+      return SignupModel.fromJson(userDetails.toJson());
     } on FirebaseAuthException catch (e) {
       log(e.message!);
       throw SignupException();
