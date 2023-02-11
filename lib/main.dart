@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:todo_app_clean_arch/core/utilities/routes.dart';
 import 'package:todo_app_clean_arch/features/signup/presentation/pages/signup_page.dart';
+import 'package:todo_app_clean_arch/features/todo/presentation/pages/todo_page.dart';
 import 'firebase_options.dart';
 import 'injection.dart' as di;
 import 'package:flutter/material.dart';
@@ -26,18 +28,13 @@ class MyApp extends StatelessWidget {
     return Consumer<ThemeService>(builder: (context, themeService, child) {
       return Sizer(
         builder: (context, orientation, deviceType) {
-          return MaterialApp(
+          return MaterialApp.router(
+            routerConfig: AppRoute.router,
             debugShowCheckedModeBanner: false,
             themeMode:
                 themeService.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
-            // home: const Placeholder(),
-            home: const SignupPageWrapperProvider(),
-            routes: {
-              SignupPage.routeName: (context) => const SignupPage(),
-              // SigninPage.routeName: (context) => const SigninPage(),
-            },
           );
         },
       );

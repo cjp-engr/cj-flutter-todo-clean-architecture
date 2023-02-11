@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:rive/rive.dart';
+import 'package:todo_app_clean_arch/core/utilities/routes.dart';
 import 'package:todo_app_clean_arch/features/signup/presentation/bloc/signup_bloc.dart';
 import 'package:todo_app_clean_arch/features/signup/presentation/widget/signup_button.dart';
 import 'package:todo_app_clean_arch/injection.dart';
@@ -20,7 +22,7 @@ class SignupPageWrapperProvider extends StatelessWidget {
 }
 
 class SignupPage extends StatefulWidget {
-  static const String routeName = '/signup';
+  // static const String routeName = '/signup';
   const SignupPage({super.key});
 
   @override
@@ -31,6 +33,7 @@ class _SignupPageState extends State<SignupPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
   final _passwordController = TextEditingController();
+
   String? _name, _email, _password;
   late RiveAnimationController _controller1;
 
@@ -42,26 +45,9 @@ class _SignupPageState extends State<SignupPage> {
 
   @override
   void dispose() {
+    _passwordController.dispose();
     _controller1.dispose();
     super.dispose();
-  }
-
-  void _submit() {
-    setState(() {
-      _autovalidateMode = AutovalidateMode.always;
-      _controller1.isActive = false;
-    });
-
-    final form = _formKey.currentState;
-
-    if (form == null || !form.validate()) {
-      _controller1.isActive = true;
-      return;
-    }
-
-    form.save();
-    context.read<SignupBloc>().add(GetNewUserCredentials(
-        name: _name!, email: _email!, password: _password!));
   }
 
   @override
@@ -175,6 +161,13 @@ class _SignupPageState extends State<SignupPage> {
                       if (state is SignupStateError) {
                         log(state.message);
                       }
+
+                      if (state is SignupStateAuthenticated) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          context.go('/${AppRoute.todo}');
+                        });
+                      }
+
                       return SignupButton(text: 'Sign up', onTap: _submit);
                     },
                   ),
@@ -187,5 +180,23 @@ class _SignupPageState extends State<SignupPage> {
         ),
       ),
     );
+  }
+
+  void _submit() {
+    setState(() {
+      _autovalidateMode = AutovalidateMode.always;
+      _controller1.isActive = false;
+    });
+
+    final form = _formKey.currentState;
+
+    if (form == null || !form.validate()) {
+      _controller1.isActive = true;
+      return;
+    }
+
+    form.save();
+    context.read<SignupBloc>().add(GetNewUserCredentials(
+        name: _name!, email: _email!, password: _password!));
   }
 }
