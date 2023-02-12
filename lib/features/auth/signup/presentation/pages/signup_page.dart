@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rive/rive.dart';
+import 'package:sizer/sizer.dart';
 import 'package:todo_app_clean_arch/core/utilities/routes.dart';
-import 'package:todo_app_clean_arch/features/signup/presentation/bloc/signup_bloc.dart';
-import 'package:todo_app_clean_arch/features/signup/presentation/widget/signup_button.dart';
+import 'package:todo_app_clean_arch/core/utilities/size_config.dart';
+import 'package:todo_app_clean_arch/core/widgets/animated_login_image.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/presentation/bloc/signup_bloc.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/presentation/widget/have_an_account_button.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/presentation/widget/signup_button.dart';
 import 'package:todo_app_clean_arch/injection.dart';
 import 'package:validators/validators.dart';
 
@@ -22,7 +26,6 @@ class SignupPageWrapperProvider extends StatelessWidget {
 }
 
 class SignupPage extends StatefulWidget {
-  // static const String routeName = '/signup';
   const SignupPage({super.key});
 
   @override
@@ -57,7 +60,8 @@ class _SignupPageState extends State<SignupPage> {
       child: Scaffold(
         body: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            padding: EdgeInsets.symmetric(
+                horizontal: SizeConfig.screenSize(context, 5.w, 17.w, 37.w)),
             child: Form(
               key: _formKey,
               autovalidateMode: _autovalidateMode,
@@ -65,16 +69,7 @@ class _SignupPageState extends State<SignupPage> {
                 shrinkWrap: true,
                 reverse: true,
                 children: [
-                  SizedBox(
-                    width: double.infinity,
-                    height: 200,
-                    child: RiveAnimation.asset(
-                      'assets/images/animated_login_screen.riv',
-                      animations: const ['success'],
-                      fit: BoxFit.cover,
-                      controllers: [_controller1],
-                    ),
-                  ),
+                  AnimatedLoginImage(controller1: _controller1),
                   const SizedBox(height: 5.0),
                   TextFormField(
                     decoration: const InputDecoration(
@@ -171,6 +166,7 @@ class _SignupPageState extends State<SignupPage> {
                       return SignupButton(text: 'Sign up', onTap: _submit);
                     },
                   ),
+                  const HaveAnAccountButton(),
                   const SizedBox(height: 10.0),
                   // MemberSigninButton(),
                 ].reversed.toList(),

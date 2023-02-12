@@ -4,8 +4,8 @@ import 'package:equatable/equatable.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 import 'package:todo_app_clean_arch/core/errors/failures/failures.dart';
-import 'package:todo_app_clean_arch/features/signup/domain/entities/signup_entity.dart';
-import 'package:todo_app_clean_arch/features/signup/domain/usecases/signup_usecases.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/domain/entities/signup_entity.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/domain/usecases/signup_usecases.dart';
 
 part 'signup_event.dart';
 part 'signup_state.dart';

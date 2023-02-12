@@ -72,42 +72,50 @@ class AppTheme {
   // *****************
 
   static final ThemeData lightTheme = ThemeData(
-      fontFamily: "Montserrat",
-      scaffoldBackgroundColor: _lightPrimaryColor,
-      appBarTheme: const AppBarTheme(
-          color: _appbarColorLight,
-          iconTheme: IconThemeData(color: _iconColor)),
-      inputDecorationTheme: InputDecorationTheme(
-        focusColor: _lightSecondaryColor,
-        errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: const BorderSide(width: 1, color: _lightOnErrorColor)),
-        focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: const BorderSide(width: 1, color: _lightOnErrorColor)),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide:
-                const BorderSide(width: 1.5, color: _lightSecondaryColor)),
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide:
-                const BorderSide(width: 1, color: _lightTextColorPrimary)),
-        disabledBorder: UnderlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide:
-                const BorderSide(width: 1, color: _lightOnPrimaryColor)),
+    fontFamily: "Montserrat",
+    scaffoldBackgroundColor: _lightPrimaryColor,
+    appBarTheme: const AppBarTheme(
+        color: _appbarColorLight, iconTheme: IconThemeData(color: _iconColor)),
+    inputDecorationTheme: InputDecorationTheme(
+      focusColor: _lightSecondaryColor,
+      errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(width: 1, color: _lightOnErrorColor)),
+      focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(width: 1, color: _lightOnErrorColor)),
+      focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide:
+              const BorderSide(width: 1.5, color: _lightSecondaryColor)),
+      enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide:
+              const BorderSide(width: 1, color: _lightTextColorPrimary)),
+      disabledBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(width: 1, color: _lightOnPrimaryColor)),
+    ),
+    textTheme: _lightTextTheme,
+    bottomAppBarTheme: const BottomAppBarTheme(color: _appbarColorLight),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18.0),
+          ),
+        ),
       ),
-      colorScheme: ColorScheme.light(
-        // primary: _lightPrimaryColor,
-        onPrimary: _lightOnPrimaryColor,
-        primaryContainer: _lightPrimaryVariantColor,
-        secondary: _lightSecondaryColor,
-        onSecondary: _lightOnSecondaryColor,
-        onError: _lightOnErrorColor,
-      ),
-      textTheme: _lightTextTheme,
-      bottomAppBarTheme: const BottomAppBarTheme(color: _appbarColorLight));
+    ),
+    colorScheme: ColorScheme.light(
+      // primary: _lightPrimaryColor,
+      onPrimary: _lightOnPrimaryColor,
+      primaryContainer: _lightPrimaryVariantColor,
+      secondary: _lightSecondaryColor,
+      onSecondary: _lightOnSecondaryColor,
+      onError: _lightOnErrorColor,
+    ),
+  );
 
   static final ThemeData darkTheme = ThemeData(
       fontFamily: "Montserrat",

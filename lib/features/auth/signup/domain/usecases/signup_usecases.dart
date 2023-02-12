@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:todo_app_clean_arch/core/errors/failures/failures.dart';
-import 'package:todo_app_clean_arch/features/signup/domain/entities/signup_entity.dart';
-import 'package:todo_app_clean_arch/features/signup/domain/repositories/signup_repo.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/domain/entities/signup_entity.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/domain/repositories/signup_repo.dart';
 
 class SignupUseCases {
   final SignupRepo signupRepo;

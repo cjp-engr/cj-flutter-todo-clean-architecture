@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
-import 'package:todo_app_clean_arch/features/signup/data/datasources/signup_remote_datasource.dart';
-import 'package:todo_app_clean_arch/features/signup/data/repositories/signup_repo_impl.dart';
-import 'package:todo_app_clean_arch/features/signup/domain/repositories/signup_repo.dart';
-import 'package:todo_app_clean_arch/features/signup/domain/usecases/signup_usecases.dart';
-import 'package:todo_app_clean_arch/features/signup/presentation/bloc/signup_bloc.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/data/datasources/signup_remote_datasource.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/data/repositories/signup_repo_impl.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/domain/repositories/signup_repo.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/domain/usecases/signup_usecases.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/presentation/bloc/signup_bloc.dart';
 
 final sl = GetIt.I;
 

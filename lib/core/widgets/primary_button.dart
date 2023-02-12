@@ -1,23 +1,31 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
+import 'package:todo_app_clean_arch/core/utilities/size_config.dart';
 
-class SignupButton extends StatelessWidget {
+class PrimaryButton extends StatelessWidget {
   final String text;
   final Function() onTap;
-  const SignupButton({
+  final double buttonWidth;
+  final double buttonHeight;
+  const PrimaryButton({
     Key? key,
     required this.text,
     required this.onTap,
+    required this.buttonWidth,
+    required this.buttonHeight,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40),
+      padding: EdgeInsets.symmetric(
+          horizontal: SizeConfig.screenSize(context, 5.w, 10.w, 10.w)),
       child: ElevatedButton(
         onPressed: onTap,
         style: ButtonStyle(
-          fixedSize: MaterialStateProperty.all(const Size(40, 50)),
+          fixedSize: MaterialStateProperty.all(Size(buttonWidth, buttonHeight)),
           backgroundColor:
               MaterialStateProperty.all(themeData.colorScheme.secondary),
         ),

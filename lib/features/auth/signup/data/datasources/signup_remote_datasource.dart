@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fb_auth;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:todo_app_clean_arch/core/errors/exceptions/exceptions.dart';
-import 'package:todo_app_clean_arch/features/signup/data/models/signup_model.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/data/models/signup_model.dart';
 
 abstract class SignupRemoteDatasource {
   Future<SignupModel> setNewUserRemoteDatasource({

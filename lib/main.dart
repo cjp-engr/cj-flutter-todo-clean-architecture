@@ -1,7 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:todo_app_clean_arch/core/utilities/routes.dart';
-import 'package:todo_app_clean_arch/features/signup/presentation/pages/signup_page.dart';
-import 'package:todo_app_clean_arch/features/todo/presentation/pages/todo_page.dart';
 import 'firebase_options.dart';
 import 'injection.dart' as di;
 import 'package:flutter/material.dart';

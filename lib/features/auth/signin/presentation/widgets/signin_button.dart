@@ -1,0 +1,29 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
+import 'package:todo_app_clean_arch/core/utilities/size_config.dart';
+import 'package:todo_app_clean_arch/core/widgets/primary_button.dart';
+
+class SigninButton extends StatelessWidget {
+  final String text;
+  final Function() onTap;
+  const SigninButton({
+    Key? key,
+    required this.text,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: SizeConfig.screenSize(context, 20.w, 10.w, 10.w)),
+      child: PrimaryButton(
+        text: text,
+        onTap: onTap,
+        buttonWidth: SizeConfig.screenSize(context, 80.w, 20.w, 20.w),
+        buttonHeight: SizeConfig.screenSize(context, 8.h, 8.h, 8.h),
+      ),
+    );
+  }
+}

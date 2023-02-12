@@ -1,11 +1,10 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:todo_app_clean_arch/core/errors/exceptions/exceptions.dart';
 import 'package:todo_app_clean_arch/core/errors/failures/failures.dart';
-import 'package:todo_app_clean_arch/features/signup/data/datasources/signup_remote_datasource.dart';
-import 'package:todo_app_clean_arch/features/signup/domain/entities/signup_entity.dart';
-import 'package:todo_app_clean_arch/features/signup/domain/repositories/signup_repo.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/data/datasources/signup_remote_datasource.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/domain/entities/signup_entity.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/domain/repositories/signup_repo.dart';
 
 class SignupRepoImpl implements SignupRepo {
   final SignupRemoteDatasource signupRemoteDatasource;

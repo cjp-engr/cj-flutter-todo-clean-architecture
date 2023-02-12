@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:todo_app_clean_arch/features/signup/domain/entities/signup_entity.dart';
+import 'package:todo_app_clean_arch/features/auth/signup/domain/entities/signup_entity.dart';
 
 class SignupModel extends SignupEntity with EquatableMixin {
   SignupModel({
