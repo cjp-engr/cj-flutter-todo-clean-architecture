@@ -42,8 +42,8 @@ class _SignupPageState extends State<SignupPage> {
 
   @override
   void initState() {
-    super.initState();
     _controller1 = OneShotAnimation('idle');
+    super.initState();
   }
 
   @override
@@ -69,7 +69,9 @@ class _SignupPageState extends State<SignupPage> {
                 shrinkWrap: true,
                 reverse: true,
                 children: [
-                  AnimatedLoginImage(controller1: _controller1),
+                  AnimatedLoginImage(
+                      controller1: _controller1,
+                      height: SizeConfig.screenSize(context, 24.h, 26.h, 32.h)),
                   const SizedBox(height: 5.0),
                   TextFormField(
                     decoration: const InputDecoration(

@@ -58,8 +58,11 @@ void main() {
       final instance = FakeFirebaseFirestore();
       final signupRemoteDatasourceUnderTest =
           SignupRemoteDatasourceImpl(firebaseAuth: auth);
+      final te = await auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+
       final userDetails = SignupModel(
-          userId: uid,
+          userId: te.user!.uid,
           name: 'name',
           email: email,
           password: password,
@@ -68,7 +71,7 @@ void main() {
       await instance.collection('users').doc(uid).set(userDetails.toJson());
       final result =
           await signupRemoteDatasourceUnderTest.setNewUserRemoteDatasource(
-              userId: uid,
+              userId: te.user!.uid,
               name: 'name',
               email: email,
               password: password,

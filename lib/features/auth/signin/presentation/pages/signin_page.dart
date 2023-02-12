@@ -63,7 +63,9 @@ class _SigninPageState extends State<SigninPage> {
                 shrinkWrap: true,
                 reverse: true,
                 children: [
-                  AnimatedLoginImage(controller1: _controller1),
+                  AnimatedLoginImage(
+                      controller1: _controller1,
+                      height: SizeConfig.screenSize(context, 24.h, 26.h, 32.h)),
                   const SizedBox(height: 5.0),
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,

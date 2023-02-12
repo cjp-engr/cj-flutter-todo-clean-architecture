@@ -55,7 +55,8 @@ class SignupRemoteDatasourceImpl implements SignupRemoteDatasource {
     } on fb_auth.FirebaseAuthException catch (e) {
       log(e.message!);
       throw SignupException();
-    } catch (_) {
+    } catch (e) {
+      log(e.toString());
       throw GeneralException();
     }
   }
