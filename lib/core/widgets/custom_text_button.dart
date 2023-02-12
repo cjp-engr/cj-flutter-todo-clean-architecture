@@ -12,9 +12,13 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
     return TextButton(
       onPressed: onTap,
-      child: Text(textButton),
+      child: Text(
+        textButton,
+        style: TextStyle(color: themeData.colorScheme.secondary),
+      ),
     );
   }
 }

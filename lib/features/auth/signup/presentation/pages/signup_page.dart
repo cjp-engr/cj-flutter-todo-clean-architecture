@@ -145,12 +145,17 @@ class _SignupPageState extends State<SignupPage> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 20.0),
+                  Padding(
+                    padding: EdgeInsets.all(
+                        SizeConfig.screenSize(context, 4.w, 5.w, 1.w)),
+                    child: const Text(
+                        'By registering, you are agreeing to our Terms of use and Privacy Policy.'),
+                  ),
                   BlocBuilder<SignupBloc, SignupState>(
                     builder: (context, state) {
                       if (state is SignupStateAuthenticating) {
                         return SignupButton(
-                            text: 'Signing up...', onTap: (() => null));
+                            text: 'SIGNING UP...', onTap: (() => null));
                       }
 
                       if (state is SignupStateError) {
@@ -163,11 +168,12 @@ class _SignupPageState extends State<SignupPage> {
                         });
                       }
 
-                      return SignupButton(text: 'Sign up', onTap: _submit);
+                      return SignupButton(text: 'SIGN UP', onTap: _submit);
                     },
                   ),
+                  SizedBox(
+                      height: SizeConfig.screenSize(context, 1.h, 1.h, 1.h)),
                   const HaveAnAccountButton(),
-                  const SizedBox(height: 10.0),
                   // MemberSigninButton(),
                 ].reversed.toList(),
               ),

@@ -21,7 +21,7 @@ class PrimaryButton extends StatelessWidget {
     final themeData = Theme.of(context);
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: SizeConfig.screenSize(context, 5.w, 10.w, 10.w)),
+          horizontal: SizeConfig.screenSize(context, 5.w, 10.w, 0.w)),
       child: ElevatedButton(
         onPressed: onTap,
         style: ButtonStyle(

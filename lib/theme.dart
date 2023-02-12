@@ -29,29 +29,22 @@ class AppTheme {
   // Text Style - light
   // *****************
   static const TextStyle _lightHeadingText = TextStyle(
-      color: _lightTextColorPrimary,
-      // fontFamily: "Montserrat",
-      fontSize: 20,
-      fontWeight: FontWeight.bold);
+      color: _lightTextColorPrimary, fontSize: 20, fontWeight: FontWeight.bold);
 
-  static const TextStyle _lightBodyText = TextStyle(
-      color: _lightTextColorPrimary,
-      // fontFamily: "Montserrat",
-      fontStyle: FontStyle.italic,
-      fontWeight: FontWeight.bold,
-      fontSize: 16);
+  static const TextStyle _lightBodyLargeText =
+      TextStyle(color: _lightTextColorPrimary, fontSize: 12);
 
   static const TextStyle _lightButtonText = TextStyle(
-      color: _lightTextColorPrimary,
-      // fontFamily: "Montserrat",
-      fontWeight: FontWeight.bold,
-      fontSize: 16);
+      color: _lightTextColorPrimary, fontWeight: FontWeight.bold, fontSize: 16);
+
+  static const TextStyle _lightTitleLargeText = TextStyle(
+      color: _lightTextColorPrimary, fontWeight: FontWeight.w900, fontSize: 12);
 
   static const TextTheme _lightTextTheme = TextTheme(
-    displayLarge: _lightHeadingText,
-    bodyLarge: _lightBodyText,
-    labelLarge: _lightButtonText,
-  );
+      bodyLarge: _lightBodyLargeText,
+      displayLarge: _lightHeadingText,
+      labelLarge: _lightButtonText,
+      titleLarge: _lightTitleLargeText);
 
   // *****************
   // Text Style - dark
@@ -60,7 +53,7 @@ class AppTheme {
       _lightHeadingText.copyWith(color: _darkTextColorPrimary);
 
   static final TextStyle _darkThemeBodyeTextStyle =
-      _lightBodyText.copyWith(color: _darkTextColorPrimary);
+      _lightBodyLargeText.copyWith(color: _darkTextColorPrimary);
 
   static final TextTheme _darkTextTheme = TextTheme(
     displayLarge: _darkThemeHeadingTextStyle,
@@ -102,7 +95,7 @@ class AppTheme {
       style: ButtonStyle(
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(18.0),
+            borderRadius: BorderRadius.circular(25.0),
           ),
         ),
       ),

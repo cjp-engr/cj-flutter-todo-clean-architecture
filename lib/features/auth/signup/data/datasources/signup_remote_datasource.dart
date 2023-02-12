@@ -3,7 +3,6 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fb_auth;
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:todo_app_clean_arch/core/errors/exceptions/exceptions.dart';
 import 'package:todo_app_clean_arch/features/auth/signup/data/models/signup_model.dart';
 
@@ -45,10 +44,15 @@ class SignupRemoteDatasourceImpl implements SignupRemoteDatasource {
           password: 'secret',
           profileImage: profileImage);
 
-      await usersRef.doc(signedInUser.uid).set(userDetails.toJson());
+      await usersRef.doc(signedInUser.uid).set({
+        'userId': signedInUser.uid,
+        'name': name,
+        'email': email,
+        'profileImage': profileImage
+      });
 
       return SignupModel.fromJson(userDetails.toJson());
-    } on FirebaseAuthException catch (e) {
+    } on fb_auth.FirebaseAuthException catch (e) {
       log(e.message!);
       throw SignupException();
     } catch (_) {

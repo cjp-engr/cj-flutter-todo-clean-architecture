@@ -17,12 +17,12 @@ class SigninButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: SizeConfig.screenSize(context, 20.w, 10.w, 10.w)),
+          horizontal: SizeConfig.screenSize(context, 20.w, 10.w, 5.w)),
       child: PrimaryButton(
         text: text,
         onTap: onTap,
-        buttonWidth: SizeConfig.screenSize(context, 80.w, 20.w, 20.w),
-        buttonHeight: SizeConfig.screenSize(context, 8.h, 8.h, 8.h),
+        buttonWidth: SizeConfig.screenSize(context, 20.w, 20.w, 100.w),
+        buttonHeight: SizeConfig.screenSize(context, 8.h, 8.h, 7.h),
       ),
     );
   }

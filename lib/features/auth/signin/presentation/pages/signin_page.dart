@@ -2,8 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:rive/rive.dart';
 import 'package:sizer/sizer.dart';
+import 'package:todo_app_clean_arch/core/utilities/routes.dart';
 import 'package:todo_app_clean_arch/core/utilities/size_config.dart';
 import 'package:todo_app_clean_arch/core/widgets/animated_login_image.dart';
 import 'package:todo_app_clean_arch/features/auth/signin/presentation/bloc/signin_bloc.dart';
@@ -105,14 +107,33 @@ class _SigninPageState extends State<SigninPage> {
                   ),
                   const Row(
                     children: [
-                      // RememberMeCheckbox(),
+                      RememberMeCheckbox(),
                       ForgotPasswordButton(),
                     ],
                   ),
                   const SizedBox(height: 20.0),
-                  SigninButton(text: 'LOGIN', onTap: _submit),
+                  // SigninButton(text: 'LOGIN', onTap: _submit),
+                  BlocBuilder<SigninBloc, SigninState>(
+                      builder: (context, state) {
+                    if (state is SigninStateAuthenticating) {
+                      return SigninButton(
+                          text: 'LOGGING IN...', onTap: (() => null));
+                    }
+
+                    if (state is SigninStateError) {
+                      log(state.message);
+                    }
+
+                    if (state is SigninStateAuthenticated) {
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        context.go('/${AppRoute.todo}');
+                      });
+                    }
+                    return SigninButton(text: 'LOGIN', onTap: _submit);
+                  }),
+                  SizedBox(
+                      height: SizeConfig.screenSize(context, 1.h, 1.h, 1.h)),
                   const NoAccountButton()
-                  // MemberSigninButton(),
                 ].reversed.toList(),
               ),
             ),
@@ -138,5 +159,8 @@ class _SigninPageState extends State<SigninPage> {
     form.save();
     // context.read<SignupBloc>().add(GetNewUserCredentials(
     //     name: _name!, email: _email!, password: _password!));
+    context
+        .read<SigninBloc>()
+        .add(GetExistingUserCredentials(email: _email!, password: _password!));
   }
 }

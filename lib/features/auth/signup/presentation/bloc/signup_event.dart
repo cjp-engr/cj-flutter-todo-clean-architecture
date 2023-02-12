@@ -3,6 +3,7 @@ part of 'signup_bloc.dart';
 
 @immutable
 abstract class SignupEvent extends Equatable {
+  const SignupEvent();
   @override
   List<Object?> get props => [];
 }
@@ -11,7 +12,7 @@ class GetNewUserCredentials extends SignupEvent {
   final String name;
   final String email;
   final String password;
-  GetNewUserCredentials(
+  const GetNewUserCredentials(
       {required this.name, required this.email, required this.password});
 
   @override

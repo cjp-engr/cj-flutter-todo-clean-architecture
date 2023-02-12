@@ -7,3 +7,5 @@ class ServerFailure extends Failure {}
 class GeneralFailure extends Failure {}
 
 class SignupFailure extends Failure {}
+
+class SigninFailure extends Failure {}
