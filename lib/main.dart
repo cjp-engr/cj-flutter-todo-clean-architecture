@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:todo_app_clean_arch/core/utilities/my_custom_scroll_behavior.dart';
 import 'package:todo_app_clean_arch/core/utilities/routes.dart';
 import 'firebase_options.dart';
 import 'injection.dart' as di;
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
                 themeService.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
+            scrollBehavior: MyCustomScrollBehavior(),
           );
         },
       );

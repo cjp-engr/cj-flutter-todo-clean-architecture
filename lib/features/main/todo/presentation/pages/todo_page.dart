@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:todo_app_clean_arch/core/utilities/size_config.dart';
-import 'package:todo_app_clean_arch/features/todo/presentation/bloc/todo_bloc.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/bloc/todo_bloc.dart';
 import 'package:todo_app_clean_arch/injection.dart';
 
 class TodoPageWrapperProvider extends StatelessWidget {
@@ -94,6 +94,32 @@ class TodoPage extends StatelessWidget {
                   borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(40),
                   ),
+                ),
+                child: Column(
+                  children: [
+                    const Row(
+                      children: [Text('Next Task')],
+                    ),
+                    const Row(
+                      children: [Text('View All')], // In Progress, Done, To do
+                    ),
+                    SizedBox(
+                      height: 100,
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          physics: const PageScrollPhysics(),
+                          itemCount: 10,
+                          itemBuilder: (BuildContext context, int index) {
+                            return const Card(
+                                color: Colors.blue,
+                                child: SizedBox(
+                                  height: 200,
+                                  width: 200,
+                                ));
+                          }),
+                    )
+                  ],
                 ),
               ),
             ],
