@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 import 'package:todo_app_clean_arch/core/utilities/routes.dart';
+import 'package:todo_app_clean_arch/core/widgets/header_text.dart';
+import 'package:todo_app_clean_arch/features/main/add_todo/presentation/widgets/add_todo_button.dart';
 
 class AddTodoPageWrapperProvider extends StatelessWidget {
   const AddTodoPageWrapperProvider({super.key});
@@ -29,53 +31,17 @@ class _AddTodoPageState extends State<AddTodoPage> {
     return Scaffold(
       body: Column(
         children: [
-          Stack(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                height: 40.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: themeData.colorScheme.onPrimary,
-                ),
+              Padding(
+                padding: EdgeInsets.all(5.w),
+                child: HeaderText(
+                    text: 'Add Todo', color: themeData.colorScheme.secondary),
               ),
-              Container(
-                height: 40.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: themeData.colorScheme.secondary,
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(40),
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    ElevatedButton(
-                        onPressed: () =>
-                            context.go('/${AppRoute.bottomNavigationBar}'),
-                        child: const Icon(Icons.abc_outlined))
-                  ],
-                ),
-              ),
-            ],
-          ),
-          Stack(
-            children: [
-              Container(
-                height: 60.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: themeData.colorScheme.secondary,
-                ),
-              ),
-              Container(
-                height: 60.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: themeData.colorScheme.onPrimary,
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(40),
-                  ),
-                ),
+              Padding(
+                padding: EdgeInsets.all(5.w),
+                child: const AddTodoButton(),
               ),
             ],
           )

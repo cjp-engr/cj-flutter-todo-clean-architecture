@@ -6,9 +6,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
-import 'package:todo_app_clean_arch/core/utilities/routes.dart';
-import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/page2.dart';
+import 'package:todo_app_clean_arch/features/main/add_todo/presentation/pages/add_todo_page.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/page3.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/page4.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/todo_page.dart';
@@ -53,14 +51,14 @@ class BottomNavigationBarState extends State<BottomNavigationBar>
 
   final pages = [
     const TodoPageWrapperProvider(),
-    const Page2(),
+    const AddTodoPageWrapperProvider(),
     const Page3(),
     const Page4(),
   ];
 
   final label = <String>[
     'Home',
-    'Page 2',
+    'Add',
     'Page 3',
     'Page 4',
   ];

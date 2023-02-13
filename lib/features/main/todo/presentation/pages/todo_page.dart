@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:todo_app_clean_arch/core/utilities/size_config.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/bloc/todo_bloc.dart';
-import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/add_todo_button.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/next_task_card.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/next_task_text.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/profile_button.dart';
@@ -107,14 +106,14 @@ class TodoPage extends StatelessWidget {
           Stack(
             children: [
               Container(
-                height: 60.h,
+                height: 55.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: themeData.colorScheme.secondary,
                 ),
               ),
               Container(
-                height: 60.h,
+                height: 55.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: themeData.colorScheme.onPrimary,
@@ -125,20 +124,23 @@ class TodoPage extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(height: 4.h),
-                    Row(
-                      children: [
-                        SizedBox(width: 5.w),
-                        const NextTaskText(),
-                      ],
-                    ),
-                    SizedBox(height: 0.5.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const ViewStatusButton(),
-                        SizedBox(width: 47.w),
-                        const AddTodoButton(),
-                      ], // In Progress, Done, To do
+                    Padding(
+                      padding: EdgeInsets.only(left: 5.w),
+                      child: Column(
+                        children: [
+                          const Row(
+                            children: [
+                              NextTaskText(),
+                            ],
+                          ),
+                          SizedBox(height: 0.5.h),
+                          const Row(
+                            children: [
+                              ViewStatusButton(),
+                            ], // In Progress, Done, To do
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 2.h),
                     const NextTaskCard(),
