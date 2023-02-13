@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rive/rive.dart';
@@ -46,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   SizedBox(
                       height: SizeConfig.screenSize(context, 30.h, 1.h, 1.h)),
-                  Text(
+                  AutoSizeText(
                     'Todoodle',
                     style: TextStyle(
                         color: themeData.colorScheme.secondary,

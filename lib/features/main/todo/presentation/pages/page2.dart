@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class Page2 extends StatelessWidget {
@@ -6,7 +7,7 @@ class Page2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Text('Page twoooo'),
+      body: AutoSizeText('Page twoooo'),
     );
   }
 }

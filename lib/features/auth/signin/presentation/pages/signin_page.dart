@@ -128,7 +128,7 @@ class _SigninPageState extends State<SigninPage> {
 
                     if (state is SigninStateAuthenticated) {
                       WidgetsBinding.instance.addPostFrameCallback((_) {
-                        context.go('/${AppRoute.todo}');
+                        context.go('/${AppRoute.bottomNavigationBar}');
                       });
                     }
                     return SigninButton(text: 'LOGIN', onTap: _submit);

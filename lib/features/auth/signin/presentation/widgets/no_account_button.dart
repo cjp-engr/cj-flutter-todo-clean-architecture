@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app_clean_arch/core/utilities/routes.dart';
@@ -11,7 +12,7 @@ class NoAccountButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Don\'t have an account?'),
+        const AutoSizeText('Don\'t have an account?'),
         CustomTextButton(
           textButton: 'Sign up',
           onTap: () => context.go('/${AppRoute.signup}'),

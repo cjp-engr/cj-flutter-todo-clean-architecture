@@ -32,7 +32,6 @@ dependencies:
   animated_bottom_navigation_bar: ^1.1.0+1
   auto_size_text: ^3.0.0
   bloc: ^8.1.1
-  circular_reveal_animation: ^2.0.1  # to be deleted later
   cloud_firestore: ^4.3.1
   cupertino_icons: ^1.0.5
   dartz: ^0.10.1

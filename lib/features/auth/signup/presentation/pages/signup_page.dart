@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -150,7 +151,7 @@ class _SignupPageState extends State<SignupPage> {
                   Padding(
                     padding: EdgeInsets.all(
                         SizeConfig.screenSize(context, 4.w, 5.w, 1.w)),
-                    child: const Text(
+                    child: const AutoSizeText(
                         'By registering, you are agreeing to our Terms of use and Privacy Policy.'),
                   ),
                   BlocBuilder<SignupBloc, SignupState>(
@@ -166,7 +167,7 @@ class _SignupPageState extends State<SignupPage> {
 
                       if (state is SignupStateAuthenticated) {
                         WidgetsBinding.instance.addPostFrameCallback((_) {
-                          context.go('/${AppRoute.todo}');
+                          context.go('/${AppRoute.bottomNavigationBar}');
                         });
                       }
 

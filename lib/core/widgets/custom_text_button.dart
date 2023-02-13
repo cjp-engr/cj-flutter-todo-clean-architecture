@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatelessWidget {
@@ -14,7 +15,7 @@ class CustomTextButton extends StatelessWidget {
     final themeData = Theme.of(context);
     return TextButton(
       onPressed: onTap,
-      child: Text(
+      child: AutoSizeText(
         textButton,
         style: TextStyle(color: themeData.colorScheme.secondary),
       ),

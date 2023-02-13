@@ -2,30 +2,38 @@
 import 'package:flutter/material.dart';
 
 class ImageButton extends StatelessWidget {
-  final String text;
+  final String path;
   final Function() onTap;
   final double buttonWidth;
   final double buttonHeight;
+  final bool isNetwork;
   const ImageButton({
     Key? key,
-    required this.text,
+    required this.path,
     required this.onTap,
     required this.buttonWidth,
     required this.buttonHeight,
+    required this.isNetwork,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final themeData = Theme.of(context);
-    return ElevatedButton(
+    return TextButton(
       onPressed: () {},
       style: ButtonStyle(
         fixedSize: MaterialStateProperty.all(Size(buttonWidth, buttonHeight)),
-        backgroundColor:
-            MaterialStateProperty.all(themeData.colorScheme.secondary),
-        padding: MaterialStateProperty.all(EdgeInsets.zero),
+        // backgroundColor: MaterialStateProperty.all(Colors.transparent),
+        padding: MaterialStateProperty.all(const EdgeInsets.all(0)),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25.0),
+          ),
+        ),
       ),
-      child: Image.asset('assets/images/flutter_logo.png'),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8.0),
+        child: Image.asset(path, fit: BoxFit.cover),
+      ),
     );
   }
 }

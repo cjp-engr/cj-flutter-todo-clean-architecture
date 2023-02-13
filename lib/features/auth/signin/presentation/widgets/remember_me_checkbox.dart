@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class RememberMeCheckbox extends StatelessWidget {
@@ -11,7 +12,7 @@ class RememberMeCheckbox extends StatelessWidget {
       child: CheckboxListTile(
         title: Transform.translate(
             offset: const Offset(-20, 0),
-            child: Text(
+            child: AutoSizeText(
               'Remember Me',
               style: TextStyle(
                   color: themeData.colorScheme.secondary,

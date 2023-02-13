@@ -3,8 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:todo_app_clean_arch/core/utilities/size_config.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/bloc/todo_bloc.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/add_todo_button.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/next_task_card.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/next_task_text.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/profile_button.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/settings_button.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/status_button.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/today_task_list.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/today_text.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/view_status_button.dart';
 import 'package:todo_app_clean_arch/injection.dart';
 
 class TodoPageWrapperProvider extends StatelessWidget {
@@ -30,14 +37,14 @@ class TodoPage extends StatelessWidget {
           Stack(
             children: [
               Container(
-                height: 50.h,
+                height: 40.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: themeData.colorScheme.onPrimary,
                 ),
               ),
               Container(
-                height: 50.h,
+                height: 40.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: themeData.colorScheme.secondary,
@@ -52,7 +59,7 @@ class TodoPage extends StatelessWidget {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 3.h,
+                        height: 5.h,
                       ),
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,18 +68,36 @@ class TodoPage extends StatelessWidget {
                           ProfileButton(),
                         ],
                       ),
-                      const Row(
+                      SizedBox(height: 2.h),
+                      Row(
                         children: [
-                          Text('Today'),
+                          SizedBox(width: 2.w),
+                          const TodayText(),
+                        ],
+                      ),
+                      SizedBox(height: 2.h),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TodayTaskList(),
+                          StatusButton(status: 1),
                         ],
                       ),
                       const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('test'),
-                          Text('test'),
-                          Text('test'),
+                          TodayTaskList(),
+                          StatusButton(status: 1),
                         ],
-                      )
+                      ),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TodayTaskList(),
+                          StatusButton(status: 1),
+                        ],
+                      ),
+                      SizedBox(height: 1.h),
                     ],
                   ),
                 ),
@@ -82,14 +107,14 @@ class TodoPage extends StatelessWidget {
           Stack(
             children: [
               Container(
-                height: 50.h,
+                height: 60.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: themeData.colorScheme.secondary,
                 ),
               ),
               Container(
-                height: 50.h,
+                height: 60.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: themeData.colorScheme.onPrimary,
@@ -99,28 +124,24 @@ class TodoPage extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    const Row(
-                      children: [Text('Next Task')],
+                    SizedBox(height: 4.h),
+                    Row(
+                      children: [
+                        SizedBox(width: 5.w),
+                        const NextTaskText(),
+                      ],
                     ),
-                    const Row(
-                      children: [Text('View All')], // In Progress, Done, To do
+                    SizedBox(height: 0.5.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const ViewStatusButton(),
+                        SizedBox(width: 47.w),
+                        const AddTodoButton(),
+                      ], // In Progress, Done, To do
                     ),
-                    SizedBox(
-                      height: 100,
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          physics: const PageScrollPhysics(),
-                          itemCount: 10,
-                          itemBuilder: (BuildContext context, int index) {
-                            return const Card(
-                                color: Colors.blue,
-                                child: SizedBox(
-                                  height: 200,
-                                  width: 200,
-                                ));
-                          }),
-                    )
+                    SizedBox(height: 2.h),
+                    const NextTaskCard(),
                   ],
                 ),
               ),

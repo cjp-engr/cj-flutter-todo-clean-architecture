@@ -1,10 +1,13 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
+import 'package:todo_app_clean_arch/core/utilities/routes.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/page2.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/page3.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/page4.dart';
@@ -56,7 +59,7 @@ class BottomNavigationBarState extends State<BottomNavigationBar>
   ];
 
   final label = <String>[
-    'Todo',
+    'Home',
     'Page 2',
     'Page 3',
     'Page 4',
@@ -135,20 +138,21 @@ class BottomNavigationBarState extends State<BottomNavigationBar>
         onNotification: onScrollNotification,
         child: NavigationScreen(pages[_bottomNavIndex]),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: HexColor('#FFA400'),
-        child: Icon(
-          Icons.brightness_3,
-          color: HexColor('#373A36'),
-        ),
-        onPressed: () {
-          _fabAnimationController.reset();
-          _borderRadiusAnimationController.reset();
-          _borderRadiusAnimationController.forward();
-          _fabAnimationController.forward();
-        },
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: HexColor('#FFA400'),
+      //   child: Icon(
+      //     Icons.add,
+      //     color: HexColor('#373A36'),
+      //   ),
+      //   onPressed: () {
+      //     _fabAnimationController.reset();
+      //     _borderRadiusAnimationController.reset();
+      //     _borderRadiusAnimationController.forward();
+      //     _fabAnimationController.forward();
+      //     context.go('/${AppRoute.addTodo}');
+      //   },
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
         itemCount: iconList.length,
         tabBuilder: (int index, bool isActive) {
@@ -180,11 +184,16 @@ class BottomNavigationBarState extends State<BottomNavigationBar>
         splashColor: HexColor('#FFA400'),
         notchAndCornersAnimation: borderRadiusAnimation,
         splashSpeedInMilliseconds: 300,
-        notchSmoothness: NotchSmoothness.defaultEdge,
-        gapLocation: GapLocation.center,
+        notchSmoothness: NotchSmoothness.smoothEdge,
+        gapLocation: GapLocation.none,
         leftCornerRadius: 32,
         rightCornerRadius: 32,
-        onTap: (index) => setState(() => _bottomNavIndex = index),
+        onTap: (index) {
+          if (mounted) {
+            log(mounted.toString());
+            setState(() => _bottomNavIndex = index);
+          }
+        },
         hideAnimationController: _hideBottomBarAnimationController,
         shadow: BoxShadow(
           offset: const Offset(0, 1),
