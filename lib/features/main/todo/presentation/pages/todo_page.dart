@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:todo_app_clean_arch/core/utilities/size_config.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/bloc/todo_bloc.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/profile_button.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/settings_button.dart';
 import 'package:todo_app_clean_arch/injection.dart';
 
 class TodoPageWrapperProvider extends StatelessWidget {
@@ -55,8 +57,8 @@ class TodoPage extends StatelessWidget {
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('menu'),
-                          Text('profile'),
+                          SettingsButton(),
+                          ProfileButton(),
                         ],
                       ),
                       const Row(
