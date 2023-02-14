@@ -35,12 +35,12 @@ class _AddTodoPageState extends State<AddTodoPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: EdgeInsets.all(5.w),
+                padding: EdgeInsets.only(top: 5.w, left: 5.w),
                 child: HeaderText(
                     text: 'Add Todo', color: themeData.colorScheme.secondary),
               ),
               Padding(
-                padding: EdgeInsets.all(5.w),
+                padding: EdgeInsets.only(top: 7.w, right: 5.w),
                 child: const AddTodoButton(),
               ),
             ],

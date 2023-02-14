@@ -31,125 +31,128 @@ class TodoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     return Scaffold(
-      body: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                height: 40.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: themeData.colorScheme.onPrimary,
-                ),
-              ),
-              Container(
-                height: 40.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: themeData.colorScheme.secondary,
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(40),
+      body: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  height: 40.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: themeData.colorScheme.onPrimary,
                   ),
                 ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal:
-                          SizeConfig.screenSize(context, 2.w, 1.w, 1.w)),
+                Container(
+                  height: 40.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: themeData.colorScheme.secondary,
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(40),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal:
+                            SizeConfig.screenSize(context, 2.w, 1.w, 1.w)),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SettingsButton(),
+                            ProfileButton(),
+                          ],
+                        ),
+                        SizedBox(height: 2.h),
+                        Row(
+                          children: [
+                            SizedBox(width: 2.w),
+                            const TodayText(),
+                          ],
+                        ),
+                        SizedBox(height: 2.h),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TodayTaskList(),
+                            StatusButton(status: 1),
+                          ],
+                        ),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TodayTaskList(),
+                            StatusButton(status: 1),
+                          ],
+                        ),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TodayTaskList(),
+                            StatusButton(status: 1),
+                          ],
+                        ),
+                        SizedBox(height: 1.h),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Stack(
+              children: [
+                Container(
+                  height: 55.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: themeData.colorScheme.secondary,
+                  ),
+                ),
+                Container(
+                  height: 55.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: themeData.colorScheme.onPrimary,
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(40),
+                    ),
+                  ),
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SettingsButton(),
-                          ProfileButton(),
-                        ],
+                      SizedBox(height: 4.h),
+                      Padding(
+                        padding: EdgeInsets.only(left: 5.w),
+                        child: Column(
+                          children: [
+                            const Row(
+                              children: [
+                                NextTaskText(),
+                              ],
+                            ),
+                            SizedBox(height: 0.5.h),
+                            const Row(
+                              children: [
+                                ViewStatusButton(),
+                              ], // In Progress, Done, To do
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(height: 2.h),
-                      Row(
-                        children: [
-                          SizedBox(width: 2.w),
-                          const TodayText(),
-                        ],
-                      ),
-                      SizedBox(height: 2.h),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TodayTaskList(),
-                          StatusButton(status: 1),
-                        ],
-                      ),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TodayTaskList(),
-                          StatusButton(status: 1),
-                        ],
-                      ),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TodayTaskList(),
-                          StatusButton(status: 1),
-                        ],
-                      ),
-                      SizedBox(height: 1.h),
+                      const NextTaskCard(),
                     ],
                   ),
                 ),
-              ),
-            ],
-          ),
-          Stack(
-            children: [
-              Container(
-                height: 55.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: themeData.colorScheme.secondary,
-                ),
-              ),
-              Container(
-                height: 55.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: themeData.colorScheme.onPrimary,
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(40),
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(height: 4.h),
-                    Padding(
-                      padding: EdgeInsets.only(left: 5.w),
-                      child: Column(
-                        children: [
-                          const Row(
-                            children: [
-                              NextTaskText(),
-                            ],
-                          ),
-                          SizedBox(height: 0.5.h),
-                          const Row(
-                            children: [
-                              ViewStatusButton(),
-                            ], // In Progress, Done, To do
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 2.h),
-                    const NextTaskCard(),
-                  ],
-                ),
-              ),
-            ],
-          )
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

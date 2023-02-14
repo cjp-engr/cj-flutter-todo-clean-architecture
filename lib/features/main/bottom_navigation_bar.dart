@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 import 'dart:developer';
 
@@ -6,6 +7,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:todo_app_clean_arch/features/main/add_todo/presentation/pages/add_todo_page.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/page3.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/page4.dart';
@@ -206,63 +209,78 @@ class BottomNavigationBarState extends State<BottomNavigationBar>
 
 class NavigationScreen extends StatefulWidget {
   final Widget pages;
-
-  const NavigationScreen(this.pages, {super.key});
+  const NavigationScreen(this.pages, {Key? key}) : super(key: key);
 
   @override
-  NavigationScreenState createState() => NavigationScreenState();
+  State<NavigationScreen> createState() => _NavigationScreenState();
 }
 
-class NavigationScreenState extends State<NavigationScreen>
-    with TickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> animation;
-
-  @override
-  void didUpdateWidget(NavigationScreen oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.pages != widget.pages) {
-      _startAnimation();
-    }
-  }
-
-  @override
-  void initState() {
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1000),
-    );
-    animation = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeIn,
-    );
-    _controller.forward();
-    super.initState();
-  }
-
-  _startAnimation() {
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1000),
-    );
-    animation = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeIn,
-    );
-    _controller.forward();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
+class _NavigationScreenState extends State<NavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return widget.pages;
   }
 }
+
+// class NavigationScreen extends StatefulWidget {
+//   final Widget pages;
+
+//   const NavigationScreen(this.pages, {super.key});
+
+//   @override
+//   NavigationScreenState createState() => NavigationScreenState();
+// }
+
+// class NavigationScreenState extends State<NavigationScreen>
+//     with TickerProviderStateMixin {
+//   late AnimationController _controller;
+//   late Animation<double> animation;
+
+//   @override
+//   void didUpdateWidget(NavigationScreen oldWidget) {
+//     super.didUpdateWidget(oldWidget);
+//     if (oldWidget.pages != widget.pages) {
+//       _startAnimation();
+//     }
+//   }
+
+//   @override
+//   void initState() {
+//     _controller = AnimationController(
+//       vsync: this,
+//       duration: const Duration(milliseconds: 1000),
+//     );
+//     animation = CurvedAnimation(
+//       parent: _controller,
+//       curve: Curves.easeIn,
+//     );
+//     _controller.forward();
+//     super.initState();
+//   }
+
+//   _startAnimation() {
+//     _controller = AnimationController(
+//       vsync: this,
+//       duration: const Duration(milliseconds: 1000),
+//     );
+//     animation = CurvedAnimation(
+//       parent: _controller,
+//       curve: Curves.easeIn,
+//     );
+//     _controller.forward();
+//   }
+
+//   @override
+//   void dispose() {
+//     _controller.dispose();
+//     super.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return widget.pages;
+//   }
+// }
 
 class HexColor extends Color {
   HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
