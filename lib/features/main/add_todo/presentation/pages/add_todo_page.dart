@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
-import 'package:todo_app_clean_arch/core/utilities/routes.dart';
 import 'package:todo_app_clean_arch/core/widgets/header_text.dart';
 import 'package:todo_app_clean_arch/features/main/add_todo/presentation/widgets/add_todo_button.dart';
 

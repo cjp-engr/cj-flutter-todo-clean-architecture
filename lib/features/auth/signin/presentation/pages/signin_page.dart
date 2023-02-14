@@ -159,8 +159,6 @@ class _SigninPageState extends State<SigninPage> {
     }
 
     form.save();
-    // context.read<SignupBloc>().add(GetNewUserCredentials(
-    //     name: _name!, email: _email!, password: _password!));
     context
         .read<SigninBloc>()
         .add(GetExistingUserCredentials(email: _email!, password: _password!));

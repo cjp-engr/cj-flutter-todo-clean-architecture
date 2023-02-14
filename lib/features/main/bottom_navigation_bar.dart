@@ -7,7 +7,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:todo_app_clean_arch/features/main/add_todo/presentation/pages/add_todo_page.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/page3.dart';

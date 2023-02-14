@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:todo_app_clean_arch/core/utilities/test.dart';
 
-class NextTaskCard extends StatelessWidget {
-  const NextTaskCard({super.key});
+class NextTaskTodoCard extends StatelessWidget {
+  const NextTaskTodoCard({super.key});
 
   @override
   Widget build(BuildContext context) {

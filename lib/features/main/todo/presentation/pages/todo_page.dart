@@ -3,14 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:todo_app_clean_arch/core/utilities/size_config.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/bloc/todo_bloc.dart';
-import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/next_task_card.dart';
-import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/next_task_text.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/next_task_todo_text.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/next_task_todo_card.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/profile_button.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/settings_button.dart';
-import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/status_button.dart';
-import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/today_task_list.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/status_todo_button.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/today_todo_list.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/today_text.dart';
-import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/view_status_button.dart';
+import 'package:todo_app_clean_arch/features/main/todo/presentation/widgets/filter_todo_button.dart';
 import 'package:todo_app_clean_arch/injection.dart';
 
 class TodoPageWrapperProvider extends StatelessWidget {
@@ -80,22 +80,22 @@ class TodoPage extends StatelessWidget {
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TodayTaskList(),
-                            StatusButton(status: 1),
+                            TodayTodoList(),
+                            StatusTodoButton(status: 1),
                           ],
                         ),
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TodayTaskList(),
-                            StatusButton(status: 1),
+                            TodayTodoList(),
+                            StatusTodoButton(status: 1),
                           ],
                         ),
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TodayTaskList(),
-                            StatusButton(status: 1),
+                            TodayTodoList(),
+                            StatusTodoButton(status: 1),
                           ],
                         ),
                         SizedBox(height: 1.h),
@@ -132,20 +132,20 @@ class TodoPage extends StatelessWidget {
                           children: [
                             const Row(
                               children: [
-                                NextTaskText(),
+                                NextTaskTodoText(),
                               ],
                             ),
                             SizedBox(height: 0.5.h),
                             const Row(
                               children: [
-                                ViewStatusButton(),
+                                FilterTodoButton(),
                               ], // In Progress, Done, To do
                             ),
                           ],
                         ),
                       ),
                       SizedBox(height: 2.h),
-                      const NextTaskCard(),
+                      const NextTaskTodoCard(),
                     ],
                   ),
                 ),

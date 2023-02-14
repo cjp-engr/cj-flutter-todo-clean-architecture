@@ -1,7 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
-import 'package:todo_app_clean_arch/core/utilities/size_config.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String text;
@@ -20,8 +18,7 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: SizeConfig.screenSize(context, 5.w, 10.w, 0.w)),
+      padding: const EdgeInsets.all(0),
       child: ElevatedButton(
         onPressed: onTap,
         style: ButtonStyle(

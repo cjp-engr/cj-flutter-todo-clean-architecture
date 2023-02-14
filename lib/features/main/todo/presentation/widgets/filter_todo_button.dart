@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:todo_app_clean_arch/core/utilities/size_config.dart';
 
-class ViewStatusButton extends StatelessWidget {
-  const ViewStatusButton({super.key});
+class FilterTodoButton extends StatelessWidget {
+  const FilterTodoButton({super.key});
 
   @override
   Widget build(BuildContext context) {

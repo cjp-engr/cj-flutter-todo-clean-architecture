@@ -5,9 +5,9 @@ import 'package:sizer/sizer.dart';
 
 import 'package:todo_app_clean_arch/core/utilities/size_config.dart';
 
-class StatusButton extends StatelessWidget {
+class StatusTodoButton extends StatelessWidget {
   final int status;
-  const StatusButton({
+  const StatusTodoButton({
     Key? key,
     required this.status,
   }) : super(key: key);
