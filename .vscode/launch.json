@@ -19,6 +19,7 @@
                 "--web-port",
                 "4848"
             ],
+            "flutterMode": "debug"
         },
         {
             "name": "todo_app_clean_arch (profile mode)",

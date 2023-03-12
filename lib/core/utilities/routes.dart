@@ -5,7 +5,6 @@ import 'package:todo_app_clean_arch/features/auth/signup/presentation/pages/home
 import 'package:todo_app_clean_arch/features/auth/signup/presentation/pages/signup_page.dart';
 import 'package:todo_app_clean_arch/features/main/add_todo/presentation/pages/add_todo_page.dart';
 import 'package:todo_app_clean_arch/features/main/bottom_navigation_bar.dart';
-import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/todo_page.dart';
 
 class AppRoute {
   static const String home = '/';
@@ -48,7 +47,7 @@ class AppRoute {
           GoRoute(
             path: todo,
             builder: (BuildContext context, GoRouterState state) {
-              return const TodoPageWrapperProvider();
+              return const Placeholder();
             },
           ),
           GoRoute(

@@ -107,8 +107,8 @@ class _SigninPageState extends State<SigninPage> {
                       _password = value;
                     },
                   ),
-                  const Row(
-                    children: [
+                  Row(
+                    children: const [
                       RememberMeCheckbox(),
                       ForgotPasswordButton(),
                     ],

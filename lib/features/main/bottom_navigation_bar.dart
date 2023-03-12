@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -9,11 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 import 'package:todo_app_clean_arch/features/main/add_todo/presentation/pages/add_todo_page.dart';
-import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/page3.dart';
-import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/page4.dart';
 import 'package:todo_app_clean_arch/features/main/todo/presentation/pages/todo_page.dart';
-
-// void main() => runApp(const BottomNavigationBarWrapper());
 
 class BottomNavigationBarWrapper extends StatelessWidget {
   const BottomNavigationBarWrapper({super.key});
@@ -47,22 +42,22 @@ class BottomNavigationBarState extends State<BottomNavigationBar>
   final iconList = <IconData>[
     Icons.brightness_5,
     Icons.brightness_4,
-    Icons.brightness_6,
-    Icons.brightness_7,
+    // Icons.brightness_6,
+    // Icons.brightness_7,
   ];
 
   final pages = [
     const TodoPageWrapperProvider(),
     const AddTodoPageWrapperProvider(),
-    const Page3(),
-    const Page4(),
+    // const Page3(),
+    // const Page4(),
   ];
 
   final label = <String>[
     'Home',
     'Add',
-    'Page 3',
-    'Page 4',
+    // 'Stats',
+    // 'Page 4',
   ];
 
   @override
@@ -190,7 +185,6 @@ class BottomNavigationBarState extends State<BottomNavigationBar>
         rightCornerRadius: 32,
         onTap: (index) {
           if (mounted) {
-            log(mounted.toString());
             setState(() => _bottomNavIndex = index);
           }
         },
