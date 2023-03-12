@@ -18,7 +18,7 @@ class AddTodoDialog extends StatefulWidget {
 class _AddTodoDialogState extends State<AddTodoDialog> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
-  String? _title, _note = 'test';
+  String? _title, _note = '';
 
   @override
   Widget build(BuildContext context) {
